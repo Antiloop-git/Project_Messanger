@@ -12,7 +12,10 @@
 
 str_1 = 'attribute'
 str_2 = 'класс'
-str_3 = 'type'
+str_3 = 'функция'
+str_4 = 'type'
+
+lst = [str_1, str_2, str_3, str_4]
 
 def str_to_b(str_in):
     try:
@@ -21,8 +24,9 @@ def str_to_b(str_in):
     except UnicodeEncodeError:
         print("There was an error encrypting...")
 
-str_to_b(str_1)
-str_to_b(str_2)
-str_to_b(str_3)
+
+for el in lst:
+    str_to_b(el)
+
 
 
