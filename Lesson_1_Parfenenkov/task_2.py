@@ -17,9 +17,7 @@ str_3 = 'method'
 
 def str_to_b(str_in):
     str_1_out = bytes(str_in, encoding='utf-8')
-    print(type(str_1))
-    print(str_1_out)
-    print(type(str_1_out))
+    print(type(str_in), str_1_out, type(str_1_out))
 
 str_to_b(str_1)
 str_to_b(str_2)
