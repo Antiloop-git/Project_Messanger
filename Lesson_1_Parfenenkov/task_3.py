@@ -19,8 +19,8 @@ lst = [str_1, str_2, str_3, str_4]
 
 def str_to_b(str_in):
     try:
-        str_1_out = bytes(str_in, encoding='ascii')
-        print(type(str_in), str_1_out, type(str_1_out))
+        str_out = bytes(str_in, encoding='ascii')
+        print(type(str_in), str_out, type(str_out))
     except UnicodeEncodeError:
         print("There was an error encrypting...")
 
