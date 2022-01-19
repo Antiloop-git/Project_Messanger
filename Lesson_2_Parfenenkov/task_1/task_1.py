@@ -74,8 +74,22 @@ def get_data():
         # Название ОС
         # os_name_reg = re.compile(r'Windows\s\S*')
         # os_name_list.append(os_name_reg.findall(data)[0])
+
         os_name_reg = re.findall(r'Название ОС................................................', data)[0].split()[2:]
-        os_name_list.append(" ".join(os_name_reg))
+        # print(os_name_reg)
+        # os_name_list.append(" ".join(os_name_reg))
+        # print(os_name_list)
+
+        with open(f'info_{i}.txt', encoding="utf-8") as f:
+            for row in f:
+                if 'Название ОС' in row:
+                    words = row.split()
+                    # words1 = words[2:]
+                    os_name_list.append(' '.join(words[2:]))
+                    # ind = words.index(find)
+                    # print(words[ind + 1])
+                    # print(words1)
+                    break
 
         # Код продукта
         os_code_reg = re.compile(r'Код продукта:\s*\S*')
