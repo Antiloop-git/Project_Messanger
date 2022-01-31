@@ -23,3 +23,25 @@
 
 НАРУШЕНИЕ обозначенных условий - задание не выполнено!!!
 """
+from chardet.universaldetector import UniversalDetector
+
+file_name1 = 'test_utf-8.txt'
+file_name2 = 'test_win1251.txt'
+file_name3 = 'test_KOI-866.txt'
+
+file_name = file_name3
+
+DETECTOR = UniversalDetector()
+with open(file_name, 'rb') as test_file:
+    for i in test_file:
+        DETECTOR.feed(i)
+        if DETECTOR.done:
+            break
+    DETECTOR.close()
+print(DETECTOR.result['encoding'])
+
+
+# открываем файл в правильной кодировке
+with open(file_name, 'r', encoding=DETECTOR.result['encoding']) as file:
+    CONTENT = file.read()
+print(CONTENT)
